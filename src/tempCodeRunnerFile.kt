@@ -16,10 +16,29 @@ fun main (args: Array<String>){
     var entrada:String? = readLine()
 
     when (entrada){
-        "1" ->  println("Ha seleccionado: Hacer una receta")
-        "2" ->  println("Ha seleccionado: Ver mis recetas")
+        "1" ->  makeRecipe()
+        "2" ->  viewRecipe()
         "3" ->  {println("Cerrando Aplicacion")
         System.exit(0)}
         else -> println("Debe introducir un numero del 1 al 3")
     }
+}
+
+fun makeRecipe(){
+    var ingredientesMenu: String =
+    """Hacer receta
+    Selecciona por categoría el ingrediente que buscas
+    1. Agua
+    2. Leche
+    3. Carne
+    4. Verduras
+    5. Frutas
+    6. Cereal
+    7. Huevos
+    8. Aceites""".trimIndent()
+    println(ingredientesMenu)
+}
+
+fun viewRecipe(){
+    println("Ver mis recetas")
 }
