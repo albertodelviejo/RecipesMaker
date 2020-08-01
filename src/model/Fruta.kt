@@ -1,6 +1,8 @@
 package model
 
-class Fruta(name: String, quantity: Int) : Ingrediente(name,quantity){
+class Fruta(name: String, quantity: Int, receta: Receta) : Ingrediente(name,quantity){
+
+    var frutas = hashMapOf<String,String>("1" to "Fresa", "2" to "Plátano", "3" to "Uvas", "4" to "Manzana", "5" to "Naranja", "6" to "Pera", "7" to "Cereza")
 
     init {
         var frutaMenu: String =
@@ -16,21 +18,11 @@ class Fruta(name: String, quantity: Int) : Ingrediente(name,quantity){
         println(frutaMenu)
 
         var entrada: String? = readLine()
-        println(selectInput(entrada))
+        receta.addIngredient(selectInput(entrada))
     }
 
     fun selectInput(entrada: String?) : String{
-        when (entrada) {
-            "1" -> name = "Fresa"
-            "2" -> name = "Plátano"
-            "3" -> name = "Uvas"
-            "4" -> name = "Manzana"
-            "5" -> name = "Naranja"
-            "6" -> name = "Pera"
-            "7" -> name = "Cereza"
-            else -> println("Debe introducir un numero del 1 al 7")
-        }
-        return "Ha seleccionado $name"
+        return "Ha seleccionado ${frutas.get(entrada)}"
     }
 
 }
